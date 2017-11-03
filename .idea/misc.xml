@@ -2,11 +2,13 @@
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/dd-manager/dd-manager-web" />
+    <file type="web" url="file://$PROJECT_DIR$/MyBatisGenerator" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/dd-parent/pom.xml" />
+        <option value="$PROJECT_DIR$/MyBatisGenerator/pom.xml" />
       </list>
     </option>
   </component>

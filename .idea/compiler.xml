@@ -12,17 +12,19 @@
         <module name="dd-manager-pojo" />
         <module name="dd-manager-service" />
         <module name="dd-manager-web" />
+        <module name="MyBatisGenerator" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.7">
-      <module name="dd-common" target="1.7" />
-      <module name="dd-manager" target="1.7" />
-      <module name="dd-manager-dao" target="1.7" />
-      <module name="dd-manager-interface" target="1.7" />
-      <module name="dd-manager-pojo" target="1.7" />
-      <module name="dd-manager-service" target="1.7" />
-      <module name="dd-manager-web" target="1.7" />
-      <module name="dd-parent" target="1.7" />
+      <module name="dd-common" target="1.8" />
+      <module name="dd-manager" target="1.8" />
+      <module name="dd-manager-dao" target="1.8" />
+      <module name="dd-manager-interface" target="1.8" />
+      <module name="dd-manager-pojo" target="1.8" />
+      <module name="dd-manager-service" target="1.8" />
+      <module name="dd-manager-web" target="1.8" />
+      <module name="dd-parent" target="1.8" />
+      <module name="MyBatisGenerator" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
