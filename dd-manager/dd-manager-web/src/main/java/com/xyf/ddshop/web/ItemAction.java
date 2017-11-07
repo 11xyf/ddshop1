@@ -1,5 +1,7 @@
 package com.xyf.ddshop.web;
 
+import com.xyf.ddshop.common.dto.Page;
+import com.xyf.ddshop.common.dto.Result;
 import com.xyf.ddshop.pojo.po.TbItem;
 import com.xyf.ddshop.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.util.List;
 
 /**
  * User: Administrator
@@ -40,10 +40,15 @@ public class ItemAction {
         //System.out.println(page);
         return page;
     }
-    @RequestMapping("/items")
+ /*   @RequestMapping("/items")
     @ResponseBody
     public List<TbItem> listItems(){
 
         return itemService.getListItems();
+    }*/
+    @ResponseBody
+    @RequestMapping("/items")
+    public Result<TbItem> listItemsByPage(Page page){
+        return itemService.listItemsByPage(page);
     }
 }

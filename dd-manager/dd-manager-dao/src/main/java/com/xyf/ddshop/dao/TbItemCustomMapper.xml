@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xyf.ddshop.dao.TbItemCustomMapper" >
+  <sql id="Base_Column_List" >
+    id, title, sell_point AS sellPoint, price, num, barcode, image, cid, status, created, updated
+  </sql>
+  <select id="countItem" resultType="int">
+    SELECT COUNT(1) FROM tb_item
+  </select>
+  <select id="listItemByPage" resultType="com.xyf.ddshop.pojo.po.TbItem" parameterType="com.xyf.ddshop.common.dto.Page">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM tb_item i
+    ORDER BY i.id
+    limit #{offset},#{rows}
+  </select>
+</mapper>
