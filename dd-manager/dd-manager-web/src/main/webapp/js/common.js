@@ -29,6 +29,19 @@ var itemList ={
     itemListMenuEvent:function () {
         $("#table").datagrid({
             url: "items",
+            toolbar:[{
+                iconCls: 'icon-up',
+                text: '上架',
+                handler: function () {
+                    console.log('up');
+                }
+            },{
+                iconCls: 'icon-down',
+                text: '下架',
+                handler: function () {
+                    console.log('down');
+                }
+            }],
             striped: true,
             pagination: true,
             rownumbers: true,
@@ -48,6 +61,3 @@ var itemList ={
         });
     }
 }
-
-
-
