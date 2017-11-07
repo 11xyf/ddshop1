@@ -39,6 +39,7 @@ var itemList ={
                 {field:'ck',checkbox:true},
                 {field: 'id', title: '商品ID',width:100},
                 {field: 'title', title: '商品名称',width:300},
+                {field: 'statusName', title: '商品状态',width:100},
                 {field: 'sellPoint', title: '卖点',width:300},
                 {field: 'catName', title: '商品分类',width:100,align:'center'},
                 {field: 'price', title: '价格',width:100,align:'right'},
