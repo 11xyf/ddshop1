@@ -5,12 +5,13 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>首页</title>
+    <!-- 自定义脚本 -->
+    <script src="js/common.js"></script>
+
 </head>
 <body>
 <div></div>
-<table id="table" ></table>
-<!-- 自定义脚本 -->
-<script src="js/common.js"></script>
+<table id="table"></table>
 <!-- 自定义js -->
 <script>
     itemList.itemListMenuEvent();

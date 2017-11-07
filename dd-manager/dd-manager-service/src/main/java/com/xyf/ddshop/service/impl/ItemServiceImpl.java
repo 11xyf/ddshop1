@@ -22,14 +22,14 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public TbItem getById(Long itemId) {
         TbItem tbItem = tbItemMapper.selectByPrimaryKey(itemId);
-        System.out.println(tbItem);
+        //System.out.println(tbItem);
         return tbItem;
     }
 
     @Override
     public List<TbItem> getListItems() {
         List<TbItem> tbItems = tbItemMapper.selectByExample(null);
-        System.out.println(tbItems);
+        //System.out.println(tbItems);
         return tbItems;
     }
 }

@@ -43,6 +43,7 @@ public class ItemAction {
     @RequestMapping("/items")
     @ResponseBody
     public List<TbItem> listItems(){
+
         return itemService.getListItems();
     }
 }

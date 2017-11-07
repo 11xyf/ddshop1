@@ -3,7 +3,6 @@ var ddshop = {
     //首页点击选项出现选项卡
     registerMenuEvent:function(){
         //alert("zzzz");
-        $(function () {
             var $tree=$("#menu .easyui-tree");
             //alert("1111");
             //console.log($tree);
@@ -24,19 +23,25 @@ var ddshop = {
                     }
                 }
             });
-        });
     }
 }
 var itemList ={
     itemListMenuEvent:function () {
         $("#table").datagrid({
-            url: 'items',
+            url: "items",
+            striped: true,
+            pagination: true,
+            rownumbers: true,
+            fit: true,
+            pageSize: 20,//每页显示的记录条数，默认为10
+            pageList: [20,50,100],//可以设置每页记录条数的列表
             columns: [[
-                {field: 'id', title: '商品ID'},
-                {field: 'title', title: '商品名称'},
-                {field: 'sellPoint', title: '卖点'},
-                {field: 'price', title: '价格'},
-                {field: 'num', title: '库存数量'}
+                {field:'ck',checkbox:true},
+                {field: 'id', title: '商品ID',width:100},
+                {field: 'title', title: '商品名称',width:300},
+                {field: 'sellPoint', title: '卖点',width:300},
+                {field: 'price', title: '价格',width:100,align:'right'},
+                {field: 'num', title: '库存数量',width:100,align:'right'}
             ]]
         });
     }
