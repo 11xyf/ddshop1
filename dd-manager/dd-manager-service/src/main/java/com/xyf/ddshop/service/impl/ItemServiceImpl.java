@@ -1,12 +1,15 @@
 package com.xyf.ddshop.service.impl;
+
 import com.xyf.ddshop.common.dto.Page;
 import com.xyf.ddshop.common.dto.Result;
 import com.xyf.ddshop.dao.TbItemCustomMapper;
 import com.xyf.ddshop.dao.TbItemMapper;
 import com.xyf.ddshop.pojo.po.TbItem;
+import com.xyf.ddshop.pojo.vo.TbItemCustom;
 import com.xyf.ddshop.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 /**
  * User: Administrator
@@ -29,10 +32,10 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public Result<TbItem> listItemsByPage(Page page) {
-        Result<TbItem> rs=new Result<>();
+    public Result<TbItemCustom> listItemsByPage(Page page) {
+        Result<TbItemCustom> rs=new Result<>();
         int total = tbItemCustomMapper.countItem();
-        List<TbItem> list = tbItemCustomMapper.listItemByPage(page);
+        List<TbItemCustom> list = tbItemCustomMapper.listItemByPage(page);
         rs.setTotal(total);
         rs.setRows(list);
         return rs;

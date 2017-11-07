@@ -40,6 +40,7 @@ var itemList ={
                 {field: 'id', title: '商品ID',width:100},
                 {field: 'title', title: '商品名称',width:300},
                 {field: 'sellPoint', title: '卖点',width:300},
+                {field: 'catName', title: '商品分类',width:100,align:'center'},
                 {field: 'price', title: '价格',width:100,align:'right'},
                 {field: 'num', title: '库存数量',width:100,align:'right'}
             ]]

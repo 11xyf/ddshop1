@@ -2,15 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xyf.ddshop.dao.TbItemCustomMapper" >
   <sql id="Base_Column_List" >
-    id, title, sell_point AS sellPoint, price, num, barcode, image, cid, status, created, updated
+    i.id, i.title, i.sell_point AS sellPoint, i.price, i.num, i.barcode, i.image, i.cid, i.status, i.created, i.updated,c.name AS catName
   </sql>
   <select id="countItem" resultType="int">
     SELECT COUNT(1) FROM tb_item
   </select>
-  <select id="listItemByPage" resultType="com.xyf.ddshop.pojo.po.TbItem" parameterType="com.xyf.ddshop.common.dto.Page">
+  <select id="listItemByPage" resultType="com.xyf.ddshop.pojo.vo.TbItemCustom" parameterType="com.xyf.ddshop.common.dto.Page">
     SELECT
     <include refid="Base_Column_List" />
-    FROM tb_item i
+    FROM tb_item i LEFT JOIN tb_item_cat c ON i.cid=c.id
     ORDER BY i.id
     limit #{offset},#{rows}
   </select>

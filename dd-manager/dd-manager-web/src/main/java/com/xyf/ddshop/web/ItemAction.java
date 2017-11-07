@@ -3,6 +3,7 @@ package com.xyf.ddshop.web;
 import com.xyf.ddshop.common.dto.Page;
 import com.xyf.ddshop.common.dto.Result;
 import com.xyf.ddshop.pojo.po.TbItem;
+import com.xyf.ddshop.pojo.vo.TbItemCustom;
 import com.xyf.ddshop.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -48,7 +49,7 @@ public class ItemAction {
     }*/
     @ResponseBody
     @RequestMapping("/items")
-    public Result<TbItem> listItemsByPage(Page page){
+    public Result<TbItemCustom> listItemsByPage(Page page){
         return itemService.listItemsByPage(page);
     }
 }
