@@ -28,7 +28,7 @@ public class Page {
     }
 
     public int getOffset() {
-        return (page-1)*rows;
+        return (page - 1) * rows;
     }
 
 }

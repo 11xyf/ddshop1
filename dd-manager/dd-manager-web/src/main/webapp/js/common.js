@@ -189,12 +189,25 @@ var itemList = {
                 {field: 'ck', checkbox: true},
                 {field: 'id', title: '商品ID'},
                 {field: 'title', title: '商品名称'},
-                {field: 'statusName', title: '商品状态'},
                 {field: 'sellPoint', title: '卖点'},
+                {field: 'statusName', title: '商品状态'},
                 {field: 'catName', title: '商品分类'},
-                {field: 'price', title: '价格'},
-                {field: 'num', title: '库存数量'},
-                {field: 'updated', title: '修改时间'}
+                {field: 'priceView', title: '商品价格'},
+                {
+                    field: 'created', title: '创建时间', formatter: function (value, row, index) {
+                    /*console.group();
+                    console.log(value);
+                    console.log(row);
+                    console.log(index);
+                    console.groupEnd();*/
+                    return moment(value).format("LLL");
+                }
+                },
+                {
+                    field: 'updated', title: '更新时间', formatter: function (value, row, index) {
+                    return moment(value).format("LLL");
+                }
+                },
             ]]
         });
 

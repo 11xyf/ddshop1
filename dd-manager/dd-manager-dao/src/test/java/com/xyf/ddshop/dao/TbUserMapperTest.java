@@ -17,7 +17,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration({"classpath:spring/spring-dao-test.xml"})
 public class TbUserMapperTest {
     @Autowired
-    private  TbUserMapper tbUserMapper;
+    private TbUserMapper tbUserMapper;
+
     @Test
     public void testSelectByPrimaryKey() throws Exception {
 

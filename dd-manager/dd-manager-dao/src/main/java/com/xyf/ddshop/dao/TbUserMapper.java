@@ -2,7 +2,9 @@ package com.xyf.ddshop.dao;
 
 import com.xyf.ddshop.pojo.po.TbUser;
 import com.xyf.ddshop.pojo.po.TbUserExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface TbUserMapper {

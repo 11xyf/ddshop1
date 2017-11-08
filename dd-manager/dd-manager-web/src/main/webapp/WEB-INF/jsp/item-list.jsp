@@ -7,7 +7,6 @@
     <title>首页</title>
     <!-- 自定义脚本 -->
     <script src="js/common.js"></script>
-
 </head>
 <body>
 <div></div>

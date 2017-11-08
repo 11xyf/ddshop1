@@ -2,7 +2,9 @@ package com.xyf.ddshop.dao;
 
 import com.xyf.ddshop.pojo.po.TbItemDesc;
 import com.xyf.ddshop.pojo.po.TbItemDescExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface TbItemDescMapper {
