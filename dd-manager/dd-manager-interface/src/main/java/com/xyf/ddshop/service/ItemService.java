@@ -15,8 +15,13 @@ import java.util.List;
  */
 public interface ItemService {
     TbItem getById(Long itemId);
-  //  List<TbItem> getListItems();
+
+    //  List<TbItem> getListItems();
     Result<TbItemCustom> listItemsByPage(Page page);
 
-    int updateItemsByIds(List<Long> ids);
+    int removeUpdateItemsByIds(List<Long> ids);
+
+    int upUpdateItemsByIds(List<Long> ids);
+
+    int downUpdateItemsByIds(List<Long> ids);
 }

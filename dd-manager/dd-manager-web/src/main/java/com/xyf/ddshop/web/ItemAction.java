@@ -25,35 +25,51 @@ public class ItemAction {
     @Autowired
     private ItemService itemService;
 
-    @RequestMapping(value = "/item/{itemId}",method = RequestMethod.GET)
+    @RequestMapping(value = "/item/{itemId}", method = RequestMethod.GET)
     @ResponseBody
-    public TbItem getById(@PathVariable(value = "itemId") Long itemId){
+    public TbItem getById(@PathVariable(value = "itemId") Long itemId) {
         System.out.println(itemId);
         return itemService.getById(itemId);
     }
+
     @RequestMapping("/")
-    public String index(){
+    public String index() {
         return "index";
     }
+
     @RequestMapping("/{page}")
-    public String page(@PathVariable String page){
+    public String page(@PathVariable String page) {
         //System.out.println(page);
         return page;
     }
- /*   @RequestMapping("/items")
-    @ResponseBody
-    public List<TbItem> listItems(){
 
-        return itemService.getListItems();
-    }*/
+    /*   @RequestMapping("/items")
+       @ResponseBody
+       public List<TbItem> listItems(){
+
+           return itemService.getListItems();
+       }*/
     @ResponseBody
     @RequestMapping("/items")
-    public Result<TbItemCustom> listItemsByPage(Page page){
+    public Result<TbItemCustom> listItemsByPage(Page page) {
         return itemService.listItemsByPage(page);
     }
+
     @ResponseBody
-    @RequestMapping("items/batch")
-    public int updateItemsByIds(@RequestParam("ids[]") List<Long> ids){
-        return itemService.updateItemsByIds(ids);
+    @RequestMapping("items/batchRemove")
+    public int removeUpdateItemsByIds(@RequestParam("ids[]") List<Long> ids) {
+        return itemService.removeUpdateItemsByIds(ids);
+    }
+
+    @ResponseBody
+    @RequestMapping("items/batchUp")
+    public int upUpdateItemsByIds(@RequestParam("ids[]") List<Long> ids) {
+        return itemService.upUpdateItemsByIds(ids);
+    }
+
+    @ResponseBody
+    @RequestMapping("items/batchDown")
+    public int downUpdateItemsByIds(@RequestParam("ids[]") List<Long> ids) {
+        return itemService.downUpdateItemsByIds(ids);
     }
 }

@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 /**
  * User: Administrator
  * Date: 2017/11/6
@@ -34,7 +35,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public Result<TbItemCustom> listItemsByPage(Page page) {
-        Result<TbItemCustom> rs=new Result<>();
+        Result<TbItemCustom> rs = new Result<>();
         int total = tbItemCustomMapper.countItem();
         List<TbItemCustom> list = tbItemCustomMapper.listItemByPage(page);
         rs.setTotal(total);
@@ -43,16 +44,35 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public int updateItemsByIds(List<Long> ids) {
+    public int removeUpdateItemsByIds(List<Long> ids) {
         TbItem record = new TbItem();
-        record.setStatus((byte)3);
+        record.setStatus((byte) 3);
         TbItemExample example = new TbItemExample();
         TbItemExample.Criteria criteria = example.createCriteria();
         criteria.andIdIn(ids);
-        return tbItemMapper.updateByExampleSelective(record,example);
+        return tbItemMapper.updateByExampleSelective(record, example);
     }
 
-/*    @Override
+    @Override
+    public int upUpdateItemsByIds(List<Long> ids) {
+        TbItem record = new TbItem();
+        record.setStatus((byte) 1);
+        TbItemExample example = new TbItemExample();
+        TbItemExample.Criteria criteria = example.createCriteria();
+        criteria.andIdIn(ids);
+        return tbItemMapper.updateByExampleSelective(record, example);
+    }
+
+    @Override
+    public int downUpdateItemsByIds(List<Long> ids) {
+        TbItem record = new TbItem();
+        record.setStatus((byte) 2);
+        TbItemExample example = new TbItemExample();
+        TbItemExample.Criteria criteria = example.createCriteria();
+        criteria.andIdIn(ids);
+        return tbItemMapper.updateByExampleSelective(record, example);
+    }
+    /*    @Override
     public List<TbItem> getListItems() {
         List<TbItem> tbItems = tbItemMapper.selectByExample(null);
         //System.out.println(tbItems);

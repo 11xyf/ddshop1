@@ -2,8 +2,9 @@ package com.xyf.ddshop.dao;
 
 import com.xyf.ddshop.pojo.po.TbItem;
 import com.xyf.ddshop.pojo.po.TbItemExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface TbItemMapper {
     int countByExample(TbItemExample example);
