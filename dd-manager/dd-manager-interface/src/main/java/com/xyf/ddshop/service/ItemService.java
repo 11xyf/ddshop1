@@ -5,6 +5,8 @@ import com.xyf.ddshop.common.dto.Result;
 import com.xyf.ddshop.pojo.po.TbItem;
 import com.xyf.ddshop.pojo.vo.TbItemCustom;
 
+import java.util.List;
+
 /**
  * User: Administrator
  * Date: 2017/11/6
@@ -15,4 +17,6 @@ public interface ItemService {
     TbItem getById(Long itemId);
   //  List<TbItem> getListItems();
     Result<TbItemCustom> listItemsByPage(Page page);
+
+    int updateItemsByIds(List<Long> ids);
 }

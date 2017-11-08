@@ -10,12 +10,13 @@
     ELSE "未知"  END AS statusName
   </sql>
   <select id="countItem" resultType="int">
-    SELECT COUNT(1) FROM tb_item
+    SELECT COUNT(1) FROM tb_item WHERE status!=3
   </select>
   <select id="listItemByPage" resultType="com.xyf.ddshop.pojo.vo.TbItemCustom" parameterType="com.xyf.ddshop.common.dto.Page">
     SELECT
     <include refid="Base_Column_List" />
     FROM tb_item i LEFT JOIN tb_item_cat c ON i.cid=c.id
+    WHERE i.status!=3
     ORDER BY i.id
     limit #{offset},#{rows}
   </select>

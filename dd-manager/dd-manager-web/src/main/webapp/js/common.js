@@ -24,24 +24,72 @@ var ddshop = {
                 }
             });
     }
-}
+};
+var toolbar=[{
+    iconCls: 'icon-add',
+    text: '新增',
+    handler: function () {
+        console.log('add');
+    }
+},{
+    iconCls: 'icon-remove',
+    text: '删除',
+    handler: function () {
+        console.log('remove');
+        var selectRows=$("#table").datagrid("getSelections");
+        //console.log(selectRows);
+        if(selectRows.length==0){
+            $.messager.alert("警告","请至少选择一条记录");
+            return;
+        }
+        $.messager.confirm("确认","确认要删除记录吗？",function(r){
+            if (r){
+                var ids=[];
+                for(var i=0;i<selectRows.length;i++){
+                    ids.push(selectRows[i].id);
+                }
+                //console.log(ids);
+                $.ajax({
+                    url:"items/batch",
+                    data:{"ids[]":ids},
+                    dataType:"json",
+                    type:"post",
+                    success:function (data) {
+                        console.log(data);
+                        $("#table").datagrid("reload");
+                    },
+                    error:function () {
+                        alert("服务器异常");
+                    }
+
+                })
+            }
+        })
+    }
+},{
+    iconCls: 'icon-edit',
+    text: '编辑',
+    handler: function () {
+        console.log('edit');
+    }
+},{
+    iconCls: 'icon-up',
+    text: '上架',
+    handler: function () {
+        console.log('up');
+    }
+},{
+    iconCls: 'icon-down',
+    text: '下架',
+    handler: function () {
+        console.log('down');
+    }
+}];
 var itemList ={
     itemListMenuEvent:function () {
         $("#table").datagrid({
             url: "items",
-            toolbar:[{
-                iconCls: 'icon-up',
-                text: '上架',
-                handler: function () {
-                    console.log('up');
-                }
-            },{
-                iconCls: 'icon-down',
-                text: '下架',
-                handler: function () {
-                    console.log('down');
-                }
-            }],
+            toolbar:toolbar,
             striped: true,
             pagination: true,
             rownumbers: true,
@@ -59,5 +107,6 @@ var itemList ={
                 {field: 'num', title: '库存数量',width:100,align:'right'}
             ]]
         });
+
     }
 }

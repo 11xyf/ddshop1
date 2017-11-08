@@ -5,6 +5,7 @@ import com.xyf.ddshop.common.dto.Result;
 import com.xyf.ddshop.dao.TbItemCustomMapper;
 import com.xyf.ddshop.dao.TbItemMapper;
 import com.xyf.ddshop.pojo.po.TbItem;
+import com.xyf.ddshop.pojo.po.TbItemExample;
 import com.xyf.ddshop.pojo.vo.TbItemCustom;
 import com.xyf.ddshop.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,16 @@ public class ItemServiceImpl implements ItemService {
         rs.setTotal(total);
         rs.setRows(list);
         return rs;
+    }
+
+    @Override
+    public int updateItemsByIds(List<Long> ids) {
+        TbItem record = new TbItem();
+        record.setStatus((byte)3);
+        TbItemExample example = new TbItemExample();
+        TbItemExample.Criteria criteria = example.createCriteria();
+        criteria.andIdIn(ids);
+        return tbItemMapper.updateByExampleSelective(record,example);
     }
 
 /*    @Override
