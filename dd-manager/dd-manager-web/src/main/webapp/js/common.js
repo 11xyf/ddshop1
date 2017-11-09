@@ -24,6 +24,7 @@ var ddshop = {
         });
     }
 };
+/*
 var toolbar = [{
     iconCls: 'icon-add',
     text: '新增',
@@ -57,7 +58,7 @@ var toolbar = [{
                     "json"
                 );
                 //console.log(ids);
-                /* $.ajax({
+                /!* $.ajax({
                      url:"items/batchRemove",
                      data:{"ids[]":ids},
                      dataType:"json",
@@ -69,7 +70,7 @@ var toolbar = [{
                      error:function () {
                          alert("服务器异常");
                      }
-                 })*/
+                 })*!/
             }
         })
     }
@@ -110,7 +111,7 @@ var toolbar = [{
                     },
                     "json"
                 );
-                /*              $.ajax({
+                /!*              $.ajax({
                                  url:"items/batchUp",
                                  data:{"ids[]":ids},
                                  dataType:"json",
@@ -122,7 +123,7 @@ var toolbar = [{
                                   error:function () {
                                       alert("服务器异常");
                                   }
-                              })*/
+                              })*!/
 
             }
         })
@@ -157,7 +158,7 @@ var toolbar = [{
                     },
                     "json"
                 )
-                /*$.ajax({
+                /!*$.ajax({
                     url:"items/batchDown",
                     data:{"ids[]":ids},
                     dataType:"json",
@@ -169,17 +170,19 @@ var toolbar = [{
                     error:function () {
                         alert("服务器异常");
                     }
-                })*/
+                })*!/
             }
         })
     }
 }];
+*/
 var itemList = {
     itemListMenuEvent: function () {
         $("#table").datagrid({
             url: "items",
             multiSort: true,
-            toolbar: toolbar,
+            //toolbar: toolbar,
+            toolbar:"#toolbar",
             striped: true,
             pagination: true,
             rownumbers: true,

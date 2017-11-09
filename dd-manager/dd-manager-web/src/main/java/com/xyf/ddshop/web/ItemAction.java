@@ -5,6 +5,7 @@ import com.xyf.ddshop.common.dto.Page;
 import com.xyf.ddshop.common.dto.Result;
 import com.xyf.ddshop.pojo.po.TbItem;
 import com.xyf.ddshop.pojo.vo.TbItemCustom;
+import com.xyf.ddshop.pojo.vo.TbItemQuery;
 import com.xyf.ddshop.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -52,8 +53,8 @@ public class ItemAction {
        }*/
     @ResponseBody
     @RequestMapping("/items")
-    public Result<TbItemCustom> listItemsByPage(Page page, Order order) {
-        return itemService.listItemsByPage(page, order);
+    public Result<TbItemCustom> listItemsByPage(Page page, Order order, TbItemQuery tbItemQuery) {
+        return itemService.listItemsByPage(page, order,tbItemQuery);
     }
 
     @ResponseBody

@@ -5,6 +5,7 @@ import com.xyf.ddshop.common.dto.Page;
 import com.xyf.ddshop.common.dto.Result;
 import com.xyf.ddshop.pojo.po.TbItem;
 import com.xyf.ddshop.pojo.vo.TbItemCustom;
+import com.xyf.ddshop.pojo.vo.TbItemQuery;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ public interface ItemService {
     TbItem getById(Long itemId);
 
     //  List<TbItem> getListItems();
-    Result<TbItemCustom> listItemsByPage(Page page, Order order);
+    Result<TbItemCustom> listItemsByPage(Page page, Order order, TbItemQuery tbItemQuery);
 
     int removeUpdateItemsByIds(List<Long> ids);
 
