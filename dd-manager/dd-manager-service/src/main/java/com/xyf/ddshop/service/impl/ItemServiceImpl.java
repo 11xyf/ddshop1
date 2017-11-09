@@ -1,5 +1,6 @@
 package com.xyf.ddshop.service.impl;
 
+import com.xyf.ddshop.common.dto.Order;
 import com.xyf.ddshop.common.dto.Page;
 import com.xyf.ddshop.common.dto.Result;
 import com.xyf.ddshop.dao.TbItemCustomMapper;
@@ -34,10 +35,10 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public Result<TbItemCustom> listItemsByPage(Page page) {
+    public Result<TbItemCustom> listItemsByPage(Page page, Order order) {
         Result<TbItemCustom> rs = new Result<>();
         int total = tbItemCustomMapper.countItem();
-        List<TbItemCustom> list = tbItemCustomMapper.listItemByPage(page);
+        List<TbItemCustom> list = tbItemCustomMapper.listItemByPage(page, order);
         rs.setTotal(total);
         rs.setRows(list);
         return rs;

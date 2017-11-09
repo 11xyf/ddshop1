@@ -1,5 +1,6 @@
 package com.xyf.ddshop.service;
 
+import com.xyf.ddshop.common.dto.Order;
 import com.xyf.ddshop.common.dto.Page;
 import com.xyf.ddshop.common.dto.Result;
 import com.xyf.ddshop.pojo.po.TbItem;
@@ -17,7 +18,7 @@ public interface ItemService {
     TbItem getById(Long itemId);
 
     //  List<TbItem> getListItems();
-    Result<TbItemCustom> listItemsByPage(Page page);
+    Result<TbItemCustom> listItemsByPage(Page page, Order order);
 
     int removeUpdateItemsByIds(List<Long> ids);
 

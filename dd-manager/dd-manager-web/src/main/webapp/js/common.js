@@ -178,6 +178,7 @@ var itemList = {
     itemListMenuEvent: function () {
         $("#table").datagrid({
             url: "items",
+            multiSort: true,
             toolbar: toolbar,
             striped: true,
             pagination: true,
@@ -187,8 +188,8 @@ var itemList = {
             pageList: [20, 50, 100],//可以设置每页记录条数的列表
             columns: [[
                 {field: 'ck', checkbox: true},
-                {field: 'id', title: '商品ID'},
-                {field: 'title', title: '商品名称'},
+                {field: 'id', title: '商品ID', sortable: true},
+                {field: 'title', title: '商品名称', sortable: true},
                 {field: 'sellPoint', title: '卖点'},
                 {field: 'statusName', title: '商品状态'},
                 {field: 'catName', title: '商品分类'},
