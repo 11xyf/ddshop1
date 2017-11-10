@@ -14,7 +14,7 @@
         <label>商品标题：</label>
         <input class="easyui-textbox" type="text" id="title">
         <label>商品状态：</label>
-        <select id="status" class="easyui-combobox" >
+        <select id="status" class="easyui-combobox">
             <option value="0">全部</option>
             <option value="1">正常</option>
             <option value="2">下架</option>
@@ -39,11 +39,14 @@
 <script>
     function add() {
         console.log('add');
+        ddshop.addTab("新增商品", "item-add");
     }
-    function edit(){
+
+    function edit() {
         console.log('edit');
     }
-    function remove(){
+
+    function remove() {
         console.log('remove');
         var selectRows = $("#table").datagrid("getSelections");
         //console.log(selectRows);
@@ -69,7 +72,8 @@
             }
         })
     }
-    function down(){
+
+    function down() {
         console.log('down');
         var selectRows = $("#table").datagrid("getSelections");
         if (selectRows.length == 0) {
@@ -100,7 +104,7 @@
         })
     }
 
-    function up(){
+    function up() {
         console.log('up');
         var selectRows = $("#table").datagrid("getSelections");
         if (selectRows.length == 0) {
@@ -131,9 +135,10 @@
             }
         })
     }
-    function searchForm(){
 
-        $('#table').datagrid('load',{
+    function searchForm() {
+
+        $('#table').datagrid('load', {
             title: $('#title').val(),
             status: $('#status').combobox('getValue')
         });

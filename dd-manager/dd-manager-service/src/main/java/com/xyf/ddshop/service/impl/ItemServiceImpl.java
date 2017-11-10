@@ -39,7 +39,7 @@ public class ItemServiceImpl implements ItemService {
     public Result<TbItemCustom> listItemsByPage(Page page, Order order, TbItemQuery tbItemQuery) {
         Result<TbItemCustom> rs = new Result<>();
         int total = tbItemCustomMapper.countItem(tbItemQuery);
-        List<TbItemCustom> list = tbItemCustomMapper.listItemByPage(page, order,tbItemQuery);
+        List<TbItemCustom> list = tbItemCustomMapper.listItemByPage(page, order, tbItemQuery);
         rs.setTotal(total);
         rs.setRows(list);
         return rs;
