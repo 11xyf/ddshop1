@@ -21,6 +21,10 @@
     </script>
     <!-- 自定义脚本 -->
     <script src="js/common.js"></script>
+    <!-- 配置文件 -->
+    <script src="js/ueditor/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script src="js/ueditor/ueditor.all.js"></script>
 </head>
 <body class="easyui-layout">
 <div data-options="region:'north'" style="height:70px;padding-left:10px;">

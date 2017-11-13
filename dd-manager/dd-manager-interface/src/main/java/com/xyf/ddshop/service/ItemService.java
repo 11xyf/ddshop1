@@ -26,4 +26,6 @@ public interface ItemService {
     int upUpdateItemsByIds(List<Long> ids);
 
     int downUpdateItemsByIds(List<Long> ids);
+
+    int saveItemDesc(TbItem tbItem, String content);
 }

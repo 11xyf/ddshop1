@@ -7,12 +7,15 @@ import com.xyf.ddshop.pojo.po.TbItem;
 import com.xyf.ddshop.pojo.vo.TbItemCustom;
 import com.xyf.ddshop.pojo.vo.TbItemQuery;
 import com.xyf.ddshop.service.ItemService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 
 /**
  * User: Administrator
@@ -24,13 +27,14 @@ import java.util.List;
 @Scope("prototype")
 public class ItemAction {
 
+    private Logger logger= LoggerFactory.getLogger(this.getClass());
     @Autowired
     private ItemService itemService;
 
     @RequestMapping(value = "/item/{itemId}", method = RequestMethod.GET)
     @ResponseBody
     public TbItem getById(@PathVariable(value = "itemId") Long itemId) {
-        System.out.println(itemId);
+        //System.out.println(itemId);
         return itemService.getById(itemId);
     }
 
@@ -73,5 +77,17 @@ public class ItemAction {
     @RequestMapping("items/batchDown")
     public int downUpdateItemsByIds(@RequestParam("ids[]") List<Long> ids) {
         return itemService.downUpdateItemsByIds(ids);
+    }
+    @ResponseBody
+    @RequestMapping("/item")
+    public int saveItem(TbItem tbItem,String content){
+        int i=0;
+        try {
+            i=itemService.saveItemDesc(tbItem,content);
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+            e.printStackTrace();
+        }
+        return i;
     }
 }

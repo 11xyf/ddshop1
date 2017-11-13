@@ -85,7 +85,6 @@
         url: "itemCats?parentId=0",
         required: true,
         onBeforeExpand: function (node) {
-            console.log(node);
             //获取当前被点击的tree
             var $currentTree = $('#cid').combotree('tree');
             //调用easyui tree组件的options方法
@@ -93,8 +92,8 @@
             //修改option的url属性
             option.url = 'itemCats?parentId=' + node.id;
         },
+
         onBeforeSelect: function (node) {
-            console.log(node);
             var isLeaf = $('#cid').tree('isLeaf', node.target);
             if (!isLeaf) {
                 $.messager.alert('警告', '请选择最终类目', 'warning');
@@ -102,6 +101,33 @@
             }
         }
     });
+    <!-- 实例化编辑器 -->
+    var ue = UE.getEditor('container');
+    function submitForm(){
+        //执行提交操作
+        $("#itemAddForm").form("submit",{
+            //请求的URL地址
+            url:"item",
+            onSubmit:function () {
+                //在提交之前触发，返回false可以终止提交
+                $("#price").val($("#priceView").val()*100);
+                return $(this).form('validate');
+            },
+            //在表单提交成功以后触发
+            success:function (data) {
+                console.log("success");
+                if(data > 0){
+                    $.messager.alert('消息','保存成功', 'info');
+                    ddshop.addTab('查询商品', 'item-list');
+                    $("#tab").tabs("close","新增商品");
+                }
+            }
+        });
+    }
+    function clearForm(){
+        $('#itemAddForm').form('reset');
+        ue.setContent('商品描述');
+    }
 </script>
 </body>
 </html>
