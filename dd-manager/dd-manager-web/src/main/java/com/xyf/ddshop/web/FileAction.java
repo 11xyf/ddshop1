@@ -26,7 +26,7 @@ public class FileAction {
     @Autowired
     private FileService fileService;
     @ResponseBody
-    @RequestMapping(value = "file/upload",method = RequestMethod.GET)
+    @RequestMapping(value = "/file/upload",method = RequestMethod.GET)
     public void config(HttpServletRequest request, HttpServletResponse response) throws  Exception{
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
