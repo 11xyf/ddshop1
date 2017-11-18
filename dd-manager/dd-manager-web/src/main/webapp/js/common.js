@@ -63,4 +63,51 @@ var itemList = {
         });
 
     }
+};
+var itemParamList = {
+    itemParamListMenuEvent: function () {
+        //列表
+        $('#tableParam').datagrid({
+            title: '商品规格模板列表',
+            url: 'itemParams',
+            fit: true,
+            rownumbers: true,
+            pagination: true,
+            pageSize: 20,
+            toolbar: '#paramToolbar',
+            columns: [[
+                {field: 'ck', checkbox: true},
+                {field: 'id', title: 'ID', sortable: true},
+                /* {field:'itemCatId',title:'商品类目ID'}, */
+                {field: 'itemCatName', title: '商品类目'},
+                {
+                    field: 'paramData', title: '规格(只显示分组名称)', formatter: function (value, row, index) {
+                    var obj=JSON.parse(value);
+                    var arr=[];
+                    $.each(obj,function (i, e) {
+                        /*console.group();
+                        console.log(i);
+                        console.log(e);
+                        console.groupEnd();*/
+                        arr.push(e.group);
+                    });
+
+                    return arr.join(",");
+
+                }
+                },
+                {
+                    field: 'createdView', title: '创建日期', formatter: function (value, row, index) {
+                    return moment(value).format('YYYY年MM月DD日,hh:mm:ss');
+                }
+                },
+                {
+                    field: 'updated', title: '更新日期', formatter: function (value, row, index) {
+                    return moment(value).format('YYYY年MM月DD日,hh:mm:ss');
+                }
+                }
+            ]]
+
+        })
+    }
 }

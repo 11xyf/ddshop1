@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xyf.ddshop.dao.TbItemParamCustomMapper">
+    <sql id="Base_Column_List">
+        p.id, p.item_cat_id, p.created AS createdView, p.updated,c.name AS itemCatName
+    </sql>
+    <sql id="Blob_Column_List">
+        p.param_data AS paramData
+    </sql>
+    <select id="countItemParams" resultType="int">
+        SELECT COUNT(1) FROM tb_item_param p
+    </select>
+    <select id="listItemParamsByPage" resultType="com.xyf.ddshop.pojo.vo.TbItemParamCustom">
+        SELECT
+        <include refid="Base_Column_List"></include>,
+        <include refid="Blob_Column_List"></include>
+        FROM tb_item_param p LEFT JOIN tb_item_cat c ON p.item_cat_id=c.id
+        ORDER BY p.id DESC
+        limit #{page.offset},#{page.rows}
+    </select>
+</mapper>

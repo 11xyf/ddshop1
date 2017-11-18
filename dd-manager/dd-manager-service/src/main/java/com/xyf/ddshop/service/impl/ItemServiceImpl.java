@@ -7,9 +7,11 @@ import com.xyf.ddshop.common.util.IDUtils;
 import com.xyf.ddshop.dao.TbItemCustomMapper;
 import com.xyf.ddshop.dao.TbItemDescMapper;
 import com.xyf.ddshop.dao.TbItemMapper;
+import com.xyf.ddshop.dao.TbItemParamItemMapper;
 import com.xyf.ddshop.pojo.po.TbItem;
 import com.xyf.ddshop.pojo.po.TbItemDesc;
 import com.xyf.ddshop.pojo.po.TbItemExample;
+import com.xyf.ddshop.pojo.po.TbItemParamItem;
 import com.xyf.ddshop.pojo.vo.TbItemCustom;
 import com.xyf.ddshop.pojo.vo.TbItemQuery;
 import com.xyf.ddshop.service.ItemService;
@@ -17,6 +19,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -36,6 +39,8 @@ public class ItemServiceImpl implements ItemService {
     private TbItemCustomMapper tbItemCustomMapper;
     @Autowired
     private TbItemDescMapper tbItemDescMapper;
+    @Autowired
+    private TbItemParamItemMapper tbItemParamItemMapper;
 
     @Override
     public TbItem getById(Long itemId) {
@@ -84,8 +89,9 @@ public class ItemServiceImpl implements ItemService {
         return tbItemMapper.updateByExampleSelective(record, example);
     }
 
+    @Transactional
     @Override
-    public int saveItemDesc(TbItem tbItem, String content) {
+    public int saveItemDesc(TbItem tbItem, String content,String paramData) {
         int i=0;
         try {
             long id = IDUtils.getItemId();
@@ -102,6 +108,13 @@ public class ItemServiceImpl implements ItemService {
             tbItemDesc.setCreated(new Date());
             tbItemDesc.setUpdated(new Date());
             i += tbItemDescMapper.insert(tbItemDesc);
+            //tb_item_param_item表填充字段
+            TbItemParamItem tbItemParamItem = new TbItemParamItem();
+            tbItemParamItem.setItemId(id);
+            tbItemParamItem.setParamData(paramData);
+            tbItemParamItem.setCreated(new Date());
+            tbItemParamItem.setUpdated(new Date());
+            i +=tbItemParamItemMapper.insert(tbItemParamItem);
         }catch (Exception e){
             logger.error(e.getMessage(),e);
             e.printStackTrace();

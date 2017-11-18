@@ -32,9 +32,13 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.4.0" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.4.3" />
           <element id="library" level="project" name="Maven: org.json:json:20160212" />
+          <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.9" />
+          <element id="library" level="project" name="Maven: com.baidu:ueditor:1.1.2" />
           <element id="archive" name="dd-common-1.0-SNAPSHOT.jar">
             <element id="module-output" name="dd-common" />
           </element>
+          <element id="library" level="project" name="Maven: commons-net:commons-net:3.3" />
+          <element id="library" level="project" name="Maven: joda-time:joda-time:2.5" />
           <element id="library" level="project" name="Maven: org.springframework:spring-core:4.2.8.RELEASE" />
           <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.2" />
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.2.8.RELEASE" />
