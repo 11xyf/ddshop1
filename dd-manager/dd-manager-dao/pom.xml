@@ -28,10 +28,6 @@
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.github.miemiedev</groupId>
-            <artifactId>mybatis-paginator</artifactId>
-        </dependency>
 
         <!-- mysql -->
         <dependency>
@@ -44,6 +40,7 @@
             <artifactId>druid</artifactId>
         </dependency>
     </dependencies>
+
     <build>
         <resources>
             <resource>
@@ -56,4 +53,6 @@
             </resource>
         </resources>
     </build>
+
+
 </project>

@@ -24,7 +24,6 @@
             <artifactId>dd-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!-- 单元测试 -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -77,11 +76,9 @@
             <artifactId>spring-context-support</artifactId>
         </dependency>
 
-        <!-- 文件上传组件 -->
-        <dependency>
-            <groupId>commons-fileupload</groupId>
-            <artifactId>commons-fileupload</artifactId>
-            <version>${commons-fileupload.version}</version>
-        </dependency>
+
+
     </dependencies>
+
+
 </project>

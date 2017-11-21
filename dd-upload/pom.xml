@@ -13,7 +13,6 @@
     <artifactId>dd-upload</artifactId>
 
     <dependencies>
-        <!-- 通信工具，如ftp -->
         <dependency>
             <groupId>commons-net</groupId>
             <artifactId>commons-net</artifactId>
@@ -43,4 +42,6 @@
             </plugin>
         </plugins>
     </build>
+
+
 </project>
