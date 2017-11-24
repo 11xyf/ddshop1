@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * Version:V1.0
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"classpath:spring/spring-dao-test.xml"})
+@ContextConfiguration({"classpath:spring/spring-dao-test.xml","classpath:spring/spring-solr-test.xml"})
 public class TbUserMapperTest {
     @Autowired
     private TbUserMapper tbUserMapper;
@@ -24,6 +24,12 @@ public class TbUserMapperTest {
 
         TbUser tbUser = tbUserMapper.selectByPrimaryKey(5L);
         System.out.println(tbUser.getUsername());
+    }
+    @Test
+    public void testString(){
+        String name = "123.jpg";
+        //[)
+        System.out.println(name.substring(name.lastIndexOf(".")));
     }
 
 }

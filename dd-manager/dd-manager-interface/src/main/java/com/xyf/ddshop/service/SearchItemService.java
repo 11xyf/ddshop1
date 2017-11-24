@@ -1,5 +1,6 @@
 package com.xyf.ddshop.service;
 
+import com.xyf.ddshop.pojo.vo.TbSearchItemResult;
 import org.apache.solr.client.solrj.SolrServerException;
 
 import java.io.IOException;
@@ -12,4 +13,6 @@ import java.io.IOException;
  */
 public interface SearchItemService {
     void importAllItems() throws SolrServerException, IOException;
+
+    TbSearchItemResult search(String keyword, int page, int rows) throws Exception;
 }
